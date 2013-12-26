@@ -1,5 +1,9 @@
 package so.calculator;
 
+import java.util.List;
+
+import so.data.Course;
+
 /** A Calculator used for calculating GPV, GPA, averages, etc. */
 public class Calculator {
 
@@ -10,7 +14,7 @@ public class Calculator {
 	 *            The given mark
 	 * @return The GPV
 	 */
-	public double getGPV(double mark) {
+	public double markToGPV(double mark) {
 		if (mark >= 85) {
 			return 4.0;
 		} else if (mark >= 80) {
@@ -36,6 +40,25 @@ public class Calculator {
 		} else {
 			return 0.0;
 		}
+	}
+
+	/**
+	 * Calculates a CGPA given a list of Courses.
+	 * 
+	 * @param courses
+	 *            A list of Courses.
+	 * @return a CGPA.
+	 */
+	public double calculateCGPA(List<Course> courses) {
+		double weightedTotalGPV = 0;
+		double sumOfWeights = 0;
+		
+		for (Course course : courses) {
+			weightedTotalGPV = weightedTotalGPV + course.getGPV()*course.getWeight();
+			sumOfWeights = sumOfWeights + course.getWeight();
+		}
+		
+		return weightedTotalGPV/sumOfWeights;
 	}
 
 }

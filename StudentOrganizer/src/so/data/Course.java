@@ -1,5 +1,6 @@
 package so.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import so.calculator.Calculator;
@@ -26,90 +27,102 @@ public class Course {
 	private List<Assessment> assessments;
 
 	/**
-	 * Constructs a new Course with a name and code
+	 * Constructs a new Course with a name and code.
 	 * 
 	 * @param name
-	 *            This Course's name
+	 *            This Course's name.
 	 * @param code
-	 *            This Course's code
+	 *            This Course's code.
 	 */
 	public Course(String name, String code, double weight) {
 		this.name = name;
 		this.code = code;
 		this.weight = weight;
+		this.mark = 999;
+		assessments = new ArrayList<Assessment>();
 		calculator = new Calculator();
 	}
 
 	/**
-	 * Returns this Course's name
+	 * Returns this Course's name.
 	 * 
-	 * @return This Course's name
+	 * @return This Course's name.
 	 */
 	public String getName() {
 		return this.name;
 	}
 
 	/**
-	 * Returns this Course's code
+	 * Returns this Course's code.
 	 * 
-	 * @return This Course's code
+	 * @return This Course's code.
 	 */
 	public String getCode() {
 		return this.code;
 	}
 
 	/**
-	 * Returns this Course's weight
+	 * Returns this Course's weight.
 	 * 
-	 * @return This Course's weight
+	 * @return This Course's weight.
 	 */
 	public double getWeight() {
 		return this.weight;
 	}
 
 	/**
-	 * Returns this Course's mark
+	 * Sets this User's mark to the given mark.
 	 * 
-	 * @return This Course's mark
+	 * @param mark
+	 *            The given mark.
+	 */
+	public void setMark(double mark) {
+		this.mark = mark;
+	}
+
+	/**
+	 * Returns this Course's mark.
+	 * 
+	 * @return This Course's mark.
 	 */
 	public double getMark() {
 		return this.mark;
 	}
 
 	/**
-	 * Returns this Course's grade point value
+	 * Returns this Course's grade point value.
 	 * 
-	 * @return This Course's grade point value
+	 * @return This Course's grade point value.
 	 */
 	public double getGPV() {
-		return calculator.getGPV(this.mark);
+		return calculator.markToGPV(this.mark);
 	}
 
 	/**
-	 * Adds an assessment to this Course's assessments
+	 * Adds an assessment to this Course's assessments.
 	 * 
 	 * @param assessment
-	 *            The assessment to be added
+	 *            The assessment to be added.
 	 */
 	public void addAssessment(Assessment assessment) {
 		assessments.add(assessment);
 	}
 
 	/**
-	 * Returns this Course's assessments
+	 * Returns this Course's assessments.
 	 * 
-	 * @return This Course's assessments
+	 * @return This Course's assessments.
 	 */
 	public List<Assessment> getAssessments() {
 		return this.assessments;
 	}
 
 	/**
-	 * Returns an Assessment with a given name
+	 * Returns an Assessment with a given name.
 	 * 
 	 * @param name
-	 *            The name
-	 * @return The Assessment with the name
+	 *            The name.
+	 * @return The Assessment with the name.
 	 */
 	public Assessment getAssessment(String name) {
 		for (Assessment assessment : assessments) {
