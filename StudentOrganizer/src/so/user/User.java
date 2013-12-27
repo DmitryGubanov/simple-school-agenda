@@ -12,14 +12,15 @@ public class User {
 	/** This User's courses. */
 	private List<Course> courses;
 
-	private Calculator calculator;
+	/** This User's calculator. */
+	private Calculator<Course> calculator;
 
 	/**
 	 * Constructs a user with an empty list of courses.
 	 */
 	public User() {
 		this.courses = new ArrayList<Course>();
-		this.calculator = new Calculator();
+		this.calculator = new Calculator<Course>();
 	}
 
 	/**
@@ -63,7 +64,7 @@ public class User {
 	 * @return This User's CGPA
 	 */
 	public double getCGPA() {
-		return calculator.calculateCGPA(this.courses);
+		return calculator.calculateAvgGrade(courses);
 	}
 
 }

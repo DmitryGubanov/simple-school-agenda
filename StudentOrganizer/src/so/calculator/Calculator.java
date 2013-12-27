@@ -2,10 +2,10 @@ package so.calculator;
 
 import java.util.List;
 
-import so.data.Course;
+import so.data.Gradable;
 
 /** A Calculator used for calculating GPV, GPA, averages, etc. */
-public class Calculator {
+public class Calculator<G extends Gradable> {
 
 	/**
 	 * Returns the GPV associated with the given mark
@@ -49,16 +49,16 @@ public class Calculator {
 	 *            A list of Courses.
 	 * @return a CGPA.
 	 */
-	public double calculateCGPA(List<Course> courses) {
-		double weightedTotalGPV = 0;
+	public double calculateAvgGrade(List<G> gradables) {
+		double weightedTotalGrade = 0;
 		double sumOfWeights = 0;
 		
-		for (Course course : courses) {
-			weightedTotalGPV = weightedTotalGPV + course.getGPV()*course.getWeight();
-			sumOfWeights = sumOfWeights + course.getWeight();
+		for (G gradable : gradables) {
+			weightedTotalGrade = weightedTotalGrade + gradable.getGrade()*gradable.getWeight();
+			sumOfWeights = sumOfWeights + gradable.getWeight();
 		}
 		
-		return weightedTotalGPV/sumOfWeights;
+		return weightedTotalGrade/sumOfWeights;
 	}
 
 }

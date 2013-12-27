@@ -6,7 +6,7 @@ import java.util.List;
 import so.calculator.Calculator;
 
 /** A Course. */
-public class Course {
+public class Course implements Gradable, Recordable {
 
 	/** This Course's name */
 	private String name;
@@ -21,7 +21,7 @@ public class Course {
 	private double weight;
 
 	/** This Course's calculator. */
-	private Calculator calculator;
+	private Calculator<Assessment> calculator;
 
 	/** This Course's assessments. */
 	private List<Assessment> assessments;
@@ -40,7 +40,7 @@ public class Course {
 		this.weight = weight;
 		this.mark = 999;
 		assessments = new ArrayList<Assessment>();
-		calculator = new Calculator();
+		calculator = new Calculator<Assessment>();
 	}
 
 	/**
@@ -59,15 +59,6 @@ public class Course {
 	 */
 	public String getCode() {
 		return this.code;
-	}
-
-	/**
-	 * Returns this Course's weight.
-	 * 
-	 * @return This Course's weight.
-	 */
-	public double getWeight() {
-		return this.weight;
 	}
 
 	/**
@@ -105,7 +96,9 @@ public class Course {
 	 *            The assessment to be added.
 	 */
 	public void addAssessment(Assessment assessment) {
+		assessment.setFileName(this.code + ".txt");
 		assessments.add(assessment);
+		setMark(calculator.calculateAvgGrade(assessments));
 	}
 
 	/**
@@ -136,6 +129,26 @@ public class Course {
 	@Override
 	public String toString() {
 		return this.code + ": " + this.name;
+	}
+
+	@Override
+	public double getGrade() {
+		return getGPV();
+	}
+
+	@Override
+	public double getWeight() {
+		return this.weight;
+	}
+
+	@Override
+	public String getFileName() {
+		return "courses.txt";
+	}
+
+	@Override
+	public String getText() {
+		return this.name + ";" + this.code + ";" + this.weight + "\n";
 	}
 
 }

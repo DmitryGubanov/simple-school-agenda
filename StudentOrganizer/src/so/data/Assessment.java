@@ -1,7 +1,7 @@
 package so.data;
 
 /** An Assessment for a course. */
-public class Assessment {
+public class Assessment implements Gradable, Recordable {
 
 	/** This Assessment's name. */
 	private String name;
@@ -9,7 +9,11 @@ public class Assessment {
 	/** This Assessment's weight. */
 	private double weight;
 
-	private double grade;
+	/** This Assessment's mark. */
+	private double mark;
+
+	/** This Assessment's file name. */
+	private String fileName;
 
 	/**
 	 * Constructs an assessment with a name and weight.
@@ -18,11 +22,13 @@ public class Assessment {
 	 *            This Assessment's name.
 	 * @param weight
 	 *            This Assessment's weight.
+	 * @param mark
+	 *            This Assessment's mark.
 	 */
-	public Assessment(String name, double weight, double grade) {
+	public Assessment(String name, double weight, double mark) {
 		this.name = name;
 		this.weight = weight;
-		this.grade = grade;
+		this.mark = mark;
 	}
 
 	/**
@@ -35,30 +41,57 @@ public class Assessment {
 	}
 
 	/**
-	 * Returns this Assessment's weight.
+	 * Sets this Assessment's mark to a given mark.
 	 * 
-	 * @return This Assessment's weight.
+	 * @param mark
+	 *            The given mark.
 	 */
+	public void setMark(double mark) {
+		this.mark = mark;
+	}
+
+	/**
+	 * Returns this Assessment's mark.
+	 * 
+	 * @return This Assessment's mark.
+	 */
+	public double getmark() {
+		return this.mark;
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
+	@Override
+	public double getGrade() {
+		return this.mark;
+	}
+
+	@Override
 	public double getWeight() {
 		return this.weight;
 	}
 
 	/**
-	 * Sets this Assessment's grade to a given grade.
+	 * Sets this Assessment's file name to the given file name.
 	 * 
-	 * @param grade
-	 *            The given grade.
+	 * @param fileName
+	 *            The given file name.
 	 */
-	public void setGrade(double grade) {
-		this.grade = grade;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
-	
-	/**
-	 * Returns this Assessment's grade
-	 * @return This Assessment's grade
-	 */
-	public double getGrade() {
-		return this.grade;
+
+	@Override
+	public String getFileName() {
+		return fileName;
+	}
+
+	@Override
+	public String getText() {
+		return this.name + ";" + this.weight + ";" + this.mark + "\n";
 	}
 
 }
