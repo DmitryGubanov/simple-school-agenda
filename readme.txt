@@ -3,7 +3,7 @@ simple-school-agenda
 
 an app which will keep track of classes, assignments, and marks
 
-Current Version: 0.00
+Current Version: 0.10
 
 Changelog:
 
