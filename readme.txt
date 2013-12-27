@@ -12,3 +12,6 @@ there's nothing yet... just started the repo
 
 v0.10:
 Implemented Course, User, Assessment, and Calculator classes according to v1.00 specification goals. TODO: FileManagers and UI.
+
+v0.20:
+Implemented all of back end according to v1.00 specification goals, with some minor changes. TODO: UI and possible fixes to backend.
