@@ -1,5 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="action_settings">Settings</string>
+    <string name="add_course">+ Add New Course</string>
     <string name="app_name">Student Organizer</string>
-
+    <string name="cancel">Cancel</string>
+    <string name="code">Code</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
+    <string name="title_activity_indv_course_display">Course Page</string>
+    <string name="title_activity_main_courses_display">Your Courses</string>
+    <string name="weight">Weight</string>
+    
 </resources>

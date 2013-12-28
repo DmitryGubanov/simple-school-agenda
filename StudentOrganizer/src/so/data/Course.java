@@ -1,12 +1,16 @@
 package so.data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import so.calculator.Calculator;
 
 /** A Course. */
-public class Course implements Gradable, Recordable {
+public class Course implements Gradable, Recordable, Serializable {
+
+	/** This Course's UID. */
+	private static final long serialVersionUID = 6528187084972101144L;
 
 	/** This Course's name */
 	private String name;

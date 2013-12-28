@@ -1,7 +1,12 @@
 package so.data;
 
+import java.io.Serializable;
+
 /** An Assessment for a course. */
-public class Assessment implements Gradable, Recordable {
+public class Assessment implements Gradable, Recordable, Serializable {
+
+	/** This Assessment's UID. */
+	private static final long serialVersionUID = -148079633200902587L;
 
 	/** This Assessment's name. */
 	private String name;

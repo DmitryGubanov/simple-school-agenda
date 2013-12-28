@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="so.dmitry.studentorganizer"
     android:versionCode="1"
@@ -12,6 +13,14 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="so.dmitry.studentorganizer.MainCoursesDisplay"
+            android:label="@string/title_activity_main_courses_display" >
+        </activity>
+        <activity
+            android:name="so.dmitry.studentorganizer.IndvCourseDisplay"
+            android:label="@string/title_activity_indv_course_display" >
+        </activity>
     </application>
 
 </manifest>

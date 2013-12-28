@@ -36,7 +36,7 @@ public class DatabaseManager<R extends Recordable> {
 		try {
 			dataFromFile = fileManager.readFromFile("courses.txt");
 		} catch (FileNotFoundException e) {
-			return null;
+			return courses;
 		}
 
 		for (String courseString : dataFromFile) {

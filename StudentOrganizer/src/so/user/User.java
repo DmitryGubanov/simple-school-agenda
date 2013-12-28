@@ -1,6 +1,5 @@
 package so.user;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import so.calculator.Calculator;
@@ -16,10 +15,13 @@ public class User {
 	private Calculator<Course> calculator;
 
 	/**
-	 * Constructs a user with an empty list of courses.
+	 * Constructs a user with a list of courses.
+	 * 
+	 * @param courses
+	 *            This User's list of courses.
 	 */
-	public User() {
-		this.courses = new ArrayList<Course>();
+	public User(List<Course> courses) {
+		this.courses = courses;
 		this.calculator = new Calculator<Course>();
 	}
 
