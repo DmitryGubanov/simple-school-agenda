@@ -2,6 +2,7 @@ package so.manager;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,12 @@ public class DatabaseManager<R extends Recordable> {
 		courses = new ArrayList<Course>();
 	}
 
+	/**
+	 * Creates a list of courses with all of their assessments, if they exist on
+	 * file.
+	 * 
+	 * @return The list of courses.
+	 */
 	public List<Course> createDatabase() {
 
 		List<String> dataFromFile;
@@ -39,29 +46,47 @@ public class DatabaseManager<R extends Recordable> {
 			return courses;
 		}
 
-		for (String courseString : dataFromFile) {
-			String[] courseData = courseString.split(";");
-			courses.add(new Course(courseData[0], courseData[1], Double
-					.parseDouble(courseData[2])));
-		}
-
-		for (Course course : courses) {
-			try {
-				dataFromFile = fileManager.readFromFile(course.getCode()
-						+ ".txt");
-			} catch (FileNotFoundException e) {
-				dataFromFile = null;
+		if (dataFromFile.size() > 0) {
+			for (String courseString : dataFromFile) {
+				String[] courseData = courseString.split(";");
+				courses.add(new Course(courseData[0], courseData[1], Double
+						.parseDouble(courseData[2])));
 			}
 
-			for (String assessmentString : dataFromFile) {
-				String[] assessmentData = assessmentString.split(";");
-				course.addAssessment(new Assessment(assessmentData[0], 
-						Double.parseDouble(assessmentData[1]),
-						Double.parseDouble(assessmentData[2])));
+			for (Course course : courses) {
+				try {
+					dataFromFile = fileManager.readFromFile(course.getCode()
+							+ ".txt");
+				} catch (FileNotFoundException e) {
+					dataFromFile = null;
+				}
+
+				if (dataFromFile != null) {
+					for (String assessmentString : dataFromFile) {
+						String[] assessmentData = assessmentString.split(";");
+						course.addAssessment(new Assessment(assessmentData[0],
+								Double.parseDouble(assessmentData[1]), Double
+										.parseDouble(assessmentData[2])));
+					}
+				}
 			}
 		}
 
 		return courses;
+	}
+
+	public void addItem(R recordable) {
+		try {
+			fileManager.writeToFile(recordable);
+		} catch (FileNotFoundException e) {
+			File file = new File(fileManager.getDir(), recordable.getFileName());
+			try {
+				file.createNewFile();
+				fileManager.writeToFile(recordable);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 
 }

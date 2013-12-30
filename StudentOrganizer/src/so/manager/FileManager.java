@@ -26,6 +26,14 @@ public class FileManager<R extends Recordable> {
 	public FileManager(File directory) {
 		this.directory = directory;
 	}
+	
+	/**
+	 * Returns this FileManager's directory.
+	 * @return This FileManager's directory.
+	 */
+	public File getDir() {
+		return this.directory;
+	}
 
 	/**
 	 * Writes a Recordable object to file.

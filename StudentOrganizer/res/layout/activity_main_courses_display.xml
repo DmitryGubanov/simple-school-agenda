@@ -46,12 +46,19 @@
 		    android:hint="@string/weight"
 		    />
 		
+		<TextView
+		    android:id="@+id/maindisplay_addcourselayout_emptyfield"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/fill_fields"
+		    android:textColor="@color/red"
+		    />
+		
 		<LinearLayout
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:orientation="horizontal"
 		    android:paddingTop="@dimen/button_padding"
-		    android:paddingBottom="@dimen/button_padding"
 		    >
 		    
 		    <TextView
@@ -80,6 +87,7 @@
         android:id="@+id/maindisplay_courselist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/activity_vertical_margin"
         >        
     </ListView>
 

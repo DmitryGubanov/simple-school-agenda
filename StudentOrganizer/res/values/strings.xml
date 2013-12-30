@@ -6,11 +6,14 @@
     <string name="app_name">Student Organizer</string>
     <string name="cancel">Cancel</string>
     <string name="code">Code</string>
+    <string name="fill_fields"> * Fill in all the fields.</string>
     <string name="hello_world">Hello world!</string>
+    <string name="indvcoursedisplay_title">Course Page</string>
+    <string name="maincoursedisplay_title">Your Courses</string>
     <string name="name">Name</string>
     <string name="save">Save</string>
     <string name="title_activity_indv_course_display">Course Page</string>
-    <string name="title_activity_main_courses_display">Your Courses</string>
+    <string name="title_activity_main_courses_display">Student Organizer</string>
     <string name="weight">Weight</string>
     
 </resources>
