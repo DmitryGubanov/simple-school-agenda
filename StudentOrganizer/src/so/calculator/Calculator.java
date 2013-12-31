@@ -1,11 +1,15 @@
 package so.calculator;
 
+import java.io.Serializable;
 import java.util.List;
 
 import so.data.Gradable;
 
 /** A Calculator used for calculating GPV, GPA, averages, etc. */
-public class Calculator<G extends Gradable> {
+public class Calculator<G extends Gradable> implements Serializable {
+
+	/**	This Calculator's UID. */
+	private static final long serialVersionUID = 5575449215145717700L;
 
 	/**
 	 * Returns the GPV associated with the given mark
@@ -58,7 +62,7 @@ public class Calculator<G extends Gradable> {
 			sumOfWeights = sumOfWeights + gradable.getWeight();
 		}
 		
-		return weightedTotalGrade/sumOfWeights;
+		return Math.round((weightedTotalGrade/sumOfWeights)*100.0)/100.0;
 	}
 
 }

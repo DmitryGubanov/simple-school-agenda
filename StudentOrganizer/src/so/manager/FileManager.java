@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,8 +13,11 @@ import java.util.Scanner;
 import so.data.Recordable;
 
 /** A file manager for the application. */
-public class FileManager<R extends Recordable> {
+public class FileManager<R extends Recordable> implements Serializable {
 
+	/** This FileManager's UID. */
+	private static final long serialVersionUID = 6811424858481685790L;
+	
 	/** This FileManager's directory. */
 	private File directory;
 

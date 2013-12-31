@@ -26,6 +26,10 @@
             android:name="so.dmitry.studentorganizer.IndvCourseDisplay"
             android:label="@string/title_activity_indv_course_display" >
         </activity>
+        <activity
+            android:name="so.dmitry.studentorganizer.UserGradesDisplay"
+            android:label="@string/title_activity_user_grades_display" >
+        </activity>
     </application>
 
 </manifest>

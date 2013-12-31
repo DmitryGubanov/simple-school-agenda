@@ -1,16 +1,263 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".IndvCourseDisplay" >
-
-    <TextView
-        android:layout_width="wrap_content"
+    tools:context=".IndvCourseDisplay"
+    >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:orientation="vertical"
+        >
+    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingBottom="@dimen/layout_padding"
+	        android:orientation="vertical"
+	        >
+	        
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/course_info"
+	            android:textStyle="bold"
+	            android:textAllCaps="true"
+	            />
+	        
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dp"
+	            android:background="@color/grey"
+	            android:paddingBottom="@dimen/under_title_spacing"
+	            />
+	        
+	        <TextView
+	            android:id="@+id/indcoursedisplay_name"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textSize="@dimen/large_text"
+	            />
+	        
+	        <TextView
+	            android:id="@+id/indcoursedisplay_code"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textSize="@dimen/medium_text"
+	            />
+	        
+	        <TextView
+		        android:id="@+id/indcoursedisplay_weight"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:textSize="@dimen/medium_text"
+		        />
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:id="@+id/indcoursedisplay_gradinginfolayout"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingBottom="@dimen/layout_padding"
+	        android:orientation="vertical"
+	        >
+	        
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/grading_info"
+	            android:textStyle="bold"
+	            android:textAllCaps="true"
+	            />
+	        
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dp"
+	            android:background="@color/grey"
+	            android:paddingBottom="@dimen/under_title_spacing"
+	            />
+	        
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal"
+	            android:baselineAligned="false"
+	            >
+	            
+	            <LinearLayout
+	                android:layout_weight="1"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                >
+	                
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/mark"
+	                    android:textAllCaps="true"
+	                    android:textColor="@color/grey"
+	                    />
+	                
+	                <TextView
+	                    android:id="@+id/indcoursedisplay_mark"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:paddingLeft="@dimen/text_indent"
+	                    android:textSize="@dimen/large_text"
+	                    />
+	                
+	            </LinearLayout>
+	            
+	            <LinearLayout
+	                android:layout_weight="1"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                >
+	                
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/gpv"
+	                    android:textAllCaps="true"
+	                    android:textColor="@color/grey"
+	                    />
+	                
+	                <TextView
+	                    android:id="@+id/indcoursedisplay_gpv"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:paddingLeft="@dimen/text_indent"	                    
+	                    android:textSize="@dimen/large_text"
+	                    />
+	                
+	            </LinearLayout>
+	            
+	        </LinearLayout>
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout 
+	        android:id="@+id/indcoursedisplay_assessmentslayout"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingBottom="@dimen/layout_padding"
+	        android:orientation="vertical"
+	        >
+	        
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/assessments"
+	            android:textStyle="bold"
+	            android:textAllCaps="true"
+	            />
+	        
+	        <View
+	            android:layout_width="match_parent"
+	            android:layout_height="1dp"
+	            android:background="@color/grey"
+	            android:paddingBottom="@dimen/under_title_spacing"
+	            />
+	        
+	        <TextView
+	            android:id="@+id/indcoursedisplay_addassessment"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textSize="@dimen/large_text"
+	            android:paddingTop="@dimen/button_padding"
+	            android:hint="@string/add_assessment"            
+	            />
+	        
+	        <LinearLayout
+	            android:id="@+id/indcoursedisplay_addassessmentlayout"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            >
+	            
+	            <EditText
+	                android:id="@+id/indcoursedisplay_addassessmentlayout_name"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:inputType="text"
+	                android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	                android:hint="@string/name"
+	                />
+	            
+	            <EditText
+	                android:id="@+id/indcoursedisplay_addassessmentlayout_weight"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:inputType="numberDecimal"
+	                android:hint="@string/weight_percent"
+	                />
+	            
+	            <EditText
+	                android:id="@+id/indcoursedisplay_addassessmentlayout_mark"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:inputType="numberDecimal"
+	                android:hint="@string/mark"
+	                />
+	            
+	            <TextView
+	                android:id="@+id/indcoursedisplay_addassessmentlayout_fillfields"
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:text="@string/fill_fields"
+	                android:textColor="@color/red"
+	                />
+	            
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="horizontal"
+	                android:paddingTop="@dimen/button_padding"
+	                >
+	                
+	                <TextView
+	                    android:id="@+id/indcoursedisplay_addassessment_save"
+	                    android:layout_weight="1"
+	                    android:layout_width="0dp"
+	                    android:layout_height="wrap_content"
+	                    android:hint="@string/save"
+	                    android:gravity="center"
+	                    />
+	                
+	                <TextView
+	                    android:id="@+id/indcoursedisplay_addassessment_cancel"
+	                    android:layout_weight="1"
+	                    android:layout_width="0dp"
+	                    android:layout_height="wrap_content"
+	                    android:hint="@string/cancel"
+	                    android:gravity="center"
+	                    />
+	                
+	            </LinearLayout>
+	            
+	        </LinearLayout>
+	        
+	        <LinearLayout
+	            android:id="@+id/indcoursedisplay_assessmentlist"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:paddingTop="@dimen/layout_padding"
+	            android:orientation="vertical"
+	            >
+	            
+	        </LinearLayout>
+	        
+	    </LinearLayout>
+    
+    </LinearLayout>
 
-</RelativeLayout>
+</ScrollView>

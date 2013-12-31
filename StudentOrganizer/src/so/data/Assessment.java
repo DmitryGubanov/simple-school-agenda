@@ -60,7 +60,7 @@ public class Assessment implements Gradable, Recordable, Serializable {
 	 * 
 	 * @return This Assessment's mark.
 	 */
-	public double getmark() {
+	public double getMark() {
 		return this.mark;
 	}
 

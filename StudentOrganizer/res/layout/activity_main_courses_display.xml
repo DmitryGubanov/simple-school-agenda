@@ -29,6 +29,8 @@
 		    android:id="@+id/maindisplay_addcourselayout_namefield"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
+		    android:inputType="text"
+		    android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		    android:hint="@string/name"
 		    />
 		
@@ -36,21 +38,46 @@
 		    android:id="@+id/maindisplay_addcourselayout_codefield"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
+		    android:inputType="text"
+		    android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		    android:hint="@string/code"
 		    />
 		
-		<EditText
-		    android:id="@+id/maindisplay_addcourselayout_weightfield"
+		<LinearLayout
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		    android:hint="@string/weight"
-		    />
+		    android:orientation="horizontal"
+		    >
+		    
+		    <CheckBox
+		        android:id="@+id/maindisplay_addcourselayout_halfyearbox"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/half_year"
+		        />
+		    
+		    <CheckBox
+		        android:id="@+id/maindisplay_addcourselayout_fullyearbox"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/full_year"
+		        />
+		    
+		</LinearLayout>
 		
 		<TextView
 		    android:id="@+id/maindisplay_addcourselayout_emptyfield"
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:text="@string/fill_fields"
+		    android:textColor="@color/red"
+		    />
+		
+		<TextView
+		    android:id="@+id/maindisplay_addcourselayout_checkboxerror"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/error_pick_one"
 		    android:textColor="@color/red"
 		    />
 		
@@ -87,7 +114,7 @@
         android:id="@+id/maindisplay_courselist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/layout_padding"
         >        
     </ListView>
 

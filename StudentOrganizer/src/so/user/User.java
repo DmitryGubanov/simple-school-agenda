@@ -1,12 +1,17 @@
 package so.user;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import so.calculator.Calculator;
 import so.data.Course;
 
 /** A User of this application. */
-public class User {
+public class User implements Serializable {
+
+	/** This User's UID. */
+	private static final long serialVersionUID = -2767600027205482106L;
 
 	/** This User's courses. */
 	private List<Course> courses;
@@ -66,7 +71,19 @@ public class User {
 	 * @return This User's CGPA
 	 */
 	public double getCGPA() {
-		return calculator.calculateAvgGrade(courses);
+		List<Course> gradableCourses = new ArrayList<Course>();
+		
+		for (Course course : courses) {
+			if (course.getMark() != 999) {
+				gradableCourses.add(course);
+			}
+		}
+		
+		if (gradableCourses.size() > 0) {
+			return calculator.calculateAvgGrade(gradableCourses);
+		} else {
+			return -1;
+		}
 	}
 
 }

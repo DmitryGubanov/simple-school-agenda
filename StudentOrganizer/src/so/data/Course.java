@@ -80,8 +80,8 @@ public class Course implements Gradable, Recordable, Serializable {
 	 * 
 	 * @return This Course's mark.
 	 */
-	public double getMark() {
-		return this.mark;
+	public int getMark() {
+		return (int) Math.ceil(this.mark);
 	}
 
 	/**
@@ -132,7 +132,7 @@ public class Course implements Gradable, Recordable, Serializable {
 
 	@Override
 	public String toString() {
-		return this.code + ": " + this.name;
+		return this.code + " - " + this.name;
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package so.manager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,10 @@ import so.data.Course;
 import so.data.Recordable;
 
 /** A database manager for this application. */
-public class DatabaseManager<R extends Recordable> {
+public class DatabaseManager<R extends Recordable> implements Serializable {
+
+	/** This DatabaseManager's UID. */
+	private static final long serialVersionUID = -7449348152144212503L;
 
 	/** This DatabaseManager's file manager. */
 	private FileManager<R> fileManager;
