@@ -7,6 +7,7 @@
     <dimen name="large_text">20sp</dimen>    
     <dimen name="layout_padding">10dp</dimen>
     <dimen name="medium_text">17sp</dimen>
+    <dimen name="small_text">15sp</dimen>
     <dimen name="text_indent">8dp</dimen>
     <dimen name="under_title_spacing">5dp</dimen>
 

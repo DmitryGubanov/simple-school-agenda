@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cumulative_gpa"
                 android:textAllCaps="true"
-                android:textColor="@color/grey"
+                android:textColor="@color/dark_grey"
                 />
         
 	        <TextView
@@ -46,13 +46,14 @@
             android:id="@+id/usergradesdisplay_nomarks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/layout_padding"
             android:text="@string/no_marks"
             android:textAllCaps="true"
-            android:textColor="@color/grey"
+            android:textColor="@color/dark_grey"
             />
         
         <LinearLayout
-            android:id="@+id/usergradesdisplay_coursemarkstitle"
+            android:id="@+id/usergradesdisplay_coursemarkslayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -69,18 +70,18 @@
 	        <View
 	            android:layout_width="match_parent"
 	            android:layout_height="1dp"
-	            android:background="@color/grey"
+	            android:background="@color/dark_grey"
 	            android:paddingBottom="@dimen/under_title_spacing"
 	            />
         
-        </LinearLayout>
-        
-        <LinearLayout
-            android:id="@+id/usergradesdisplay_coursemarks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+	        <LinearLayout
+	            android:id="@+id/usergradesdisplay_coursemarks"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	            >
+            
+            </LinearLayout>
             
         </LinearLayout>
         

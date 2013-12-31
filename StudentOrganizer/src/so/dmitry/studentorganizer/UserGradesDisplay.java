@@ -4,10 +4,11 @@ import java.util.List;
 
 import so.data.Course;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,45 +19,22 @@ public class UserGradesDisplay extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_grades_display);
-		
-		// TODO: this is really messy, so clean it up when you're less lazy
 
-		TextView vCGPA = (TextView) findViewById(R.id.usergradesdisplay_cgpa);
-		TextView vNoMarks = (TextView) findViewById(R.id.usergradesdisplay_nomarks);
-		LinearLayout CGPALayout = (LinearLayout) findViewById(R.id.usergradedisplay_cgpalayout);
-		LinearLayout courseMarksTitle = (LinearLayout) findViewById(R.id.usergradesdisplay_coursemarkstitle);
-		LinearLayout courseMarks = (LinearLayout) findViewById(R.id.usergradesdisplay_coursemarks);
-		double CGPA = MainCoursesDisplay.user.getCGPA();
-		
-		
 		if (MainCoursesDisplay.user.getCourses().size() == 0) {
-			courseMarksTitle.setVisibility(View.GONE);
-			courseMarks.setVisibility(View.GONE);
-			CGPALayout.setVisibility(View.GONE);
+			setVisibilities(View.GONE, View.VISIBLE, View.GONE);
 		} else {
-			if (CGPA >= 0) {
-				vNoMarks.setVisibility(View.GONE);
-				vCGPA.setText(String.valueOf(CGPA));
-			} else {			
-				CGPALayout.setVisibility(View.GONE);
+			if (MainCoursesDisplay.user.getCGPA() < 0) {
+				setVisibilities(View.GONE, View.VISIBLE, View.VISIBLE);
+			} else {
+				setVisibilities(View.VISIBLE, View.GONE, View.VISIBLE);
+				((TextView) findViewById(R.id.usergradesdisplay_cgpa))
+						.setText(String.valueOf(MainCoursesDisplay.user
+								.getCGPA()));
 			}
 
-			List<Course> courses = MainCoursesDisplay.user.getCourses();
-
-			for (Course course : courses) {
-				TextView courseTV = new TextView(this);
-				courseTV.setLayoutParams(new LayoutParams(
-						LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-				if (course.getMark() == 999) {
-					courseTV.setText(course + ": no mark");
-				} else {
-					courseTV.setText(course + ": " + course.getMark());
-				}
-				
-				courseMarks.addView(courseTV);
-			}
+			loadUserGrades(MainCoursesDisplay.user.getCourses());
 		}
-			
+
 	}
 
 	@Override
@@ -64,6 +42,61 @@ public class UserGradesDisplay extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.user_grades_display, menu);
 		return true;
+	}
+
+	/**
+	 * Sets the visibilities of the views in this UserGradesDisplay activity.
+	 * 
+	 * @param vCGPA
+	 *            The visibility of the view that displays the CGPA
+	 * @param vNoMarks
+	 *            The visibility of the view that says there are no marks
+	 * @param vCourseMarksLayout
+	 *            The visibility of the course marks list layout
+	 */
+	private void setVisibilities(int vCGPA, int vNoMarks, int vCourseMarksLayout) {
+		((LinearLayout) findViewById(R.id.usergradedisplay_cgpalayout))
+				.setVisibility(vCGPA);
+		((TextView) findViewById(R.id.usergradesdisplay_nomarks))
+				.setVisibility(vNoMarks);
+		((LinearLayout) findViewById(R.id.usergradesdisplay_coursemarkslayout))
+				.setVisibility(vCourseMarksLayout);
+
+	}
+
+	/**
+	 * Loads the user's course grades, given a list of courses.
+	 * 
+	 * @param courses
+	 *            The given list of courses.
+	 */
+	private void loadUserGrades(List<Course> courses) {
+		LinearLayout courseList = (LinearLayout) findViewById(R.id.usergradesdisplay_coursemarks);
+
+		for (Course course : courses) {
+			LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			View view = inflater
+					.inflate(R.layout.listitem_courseandgrade, null);
+
+			((TextView) view.findViewById(R.id.listitemcourseandgrade_course))
+					.setText(course.toString());
+			((TextView) view.findViewById(R.id.listitemcourseandgrade_weight))
+					.setText(String.valueOf(course.getWeight()));
+			if (course.getMark() == 999) {
+				((TextView) view.findViewById(R.id.listitemcourseandgrade_mark))
+						.setText(getString(R.string.none));
+				((TextView) view.findViewById(R.id.listitemcourseandgrade_gpv))
+						.setText(getString(R.string.none));
+			} else {
+				((TextView) view.findViewById(R.id.listitemcourseandgrade_mark))
+						.setText(String.valueOf(course.getMark()));
+				((TextView) view.findViewById(R.id.listitemcourseandgrade_gpv))
+						.setText(String.valueOf(course.getGPV()));
+			}
+
+			courseList.addView(view);
+		}
+
 	}
 
 }

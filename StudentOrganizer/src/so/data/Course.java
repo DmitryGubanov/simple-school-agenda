@@ -90,7 +90,7 @@ public class Course implements Gradable, Recordable, Serializable {
 	 * @return This Course's grade point value.
 	 */
 	public double getGPV() {
-		return calculator.markToGPV(this.mark);
+		return calculator.markToGPV(getMark());
 	}
 
 	/**

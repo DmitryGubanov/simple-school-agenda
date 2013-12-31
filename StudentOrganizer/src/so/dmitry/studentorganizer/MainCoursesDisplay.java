@@ -58,7 +58,7 @@ public class MainCoursesDisplay extends Activity implements OnItemClickListener 
 		getMenuInflater().inflate(R.menu.main_courses_display, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -160,6 +160,10 @@ public class MainCoursesDisplay extends Activity implements OnItemClickListener 
 				.setText("");
 		((EditText) findViewById(R.id.maindisplay_addcourselayout_codefield))
 				.setText("");
+		((CheckBox) findViewById(R.id.maindisplay_addcourselayout_halfyearbox))
+				.setChecked(false);
+		((CheckBox) findViewById(R.id.maindisplay_addcourselayout_fullyearbox))
+				.setChecked(false);
 	}
 
 	/**

@@ -34,7 +34,7 @@
 	        <View
 	            android:layout_width="match_parent"
 	            android:layout_height="1dp"
-	            android:background="@color/grey"
+	            android:background="@color/dark_grey"
 	            android:paddingBottom="@dimen/under_title_spacing"
 	            />
 	        
@@ -80,7 +80,7 @@
 	        <View
 	            android:layout_width="match_parent"
 	            android:layout_height="1dp"
-	            android:background="@color/grey"
+	            android:background="@color/dark_grey"
 	            android:paddingBottom="@dimen/under_title_spacing"
 	            />
 	        
@@ -103,7 +103,7 @@
 	                    android:layout_height="wrap_content"
 	                    android:text="@string/mark"
 	                    android:textAllCaps="true"
-	                    android:textColor="@color/grey"
+	                    android:textColor="@color/dark_grey"
 	                    />
 	                
 	                <TextView
@@ -128,7 +128,7 @@
 	                    android:layout_height="wrap_content"
 	                    android:text="@string/gpv"
 	                    android:textAllCaps="true"
-	                    android:textColor="@color/grey"
+	                    android:textColor="@color/dark_grey"
 	                    />
 	                
 	                <TextView
@@ -164,7 +164,7 @@
 	        <View
 	            android:layout_width="match_parent"
 	            android:layout_height="1dp"
-	            android:background="@color/grey"
+	            android:background="@color/dark_grey"
 	            android:paddingBottom="@dimen/under_title_spacing"
 	            />
 	        

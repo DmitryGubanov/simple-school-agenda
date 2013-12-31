@@ -24,6 +24,7 @@
     <string name="marks">Marks</string>
     <string name="name">Name</string>
     <string name="no_marks">No marks for any courses</string>
+    <string name="none">None</string>
     <string name="save">Save</string>
     <string name="title_activity_indv_course_display">Course Page</string>
     <string name="title_activity_main_courses_display">Student Organizer</string>

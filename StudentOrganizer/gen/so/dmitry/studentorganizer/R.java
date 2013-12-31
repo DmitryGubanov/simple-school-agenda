@@ -12,8 +12,9 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f040000;
-        public static final int grey=0x7f040001;
-        public static final int red=0x7f040002;
+        public static final int dark_grey=0x7f040001;
+        public static final int grey=0x7f040002;
+        public static final int red=0x7f040003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -28,16 +29,17 @@ public final class R {
         public static final int large_text=0x7f050003;
         public static final int layout_padding=0x7f050004;
         public static final int medium_text=0x7f050005;
-        public static final int text_indent=0x7f050006;
-        public static final int under_title_spacing=0x7f050007;
+        public static final int small_text=0x7f050006;
+        public static final int text_indent=0x7f050007;
+        public static final int under_title_spacing=0x7f050008;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_viewmarks=0x7f090026;
-        public static final int courselistviewitem_code=0x7f090025;
-        public static final int courselistviewitem_name=0x7f090024;
+        public static final int action_viewmarks=0x7f09002a;
+        public static final int courselistviewitem_code=0x7f090029;
+        public static final int courselistviewitem_name=0x7f090028;
         public static final int indcoursedisplay_addassessment=0x7f090007;
         public static final int indcoursedisplay_addassessment_cancel=0x7f09000e;
         public static final int indcoursedisplay_addassessment_save=0x7f09000d;
@@ -57,7 +59,11 @@ public final class R {
         public static final int listitem_assessment=0x7f090020;
         public static final int listitem_assessment_name=0x7f090021;
         public static final int listitem_assessment_weightandgrade=0x7f090022;
-        public static final int listviewitem_course=0x7f090023;
+        public static final int listitemcourseandgrade_course=0x7f090023;
+        public static final int listitemcourseandgrade_gpv=0x7f090026;
+        public static final int listitemcourseandgrade_mark=0x7f090025;
+        public static final int listitemcourseandgrade_weight=0x7f090024;
+        public static final int listviewitem_course=0x7f090027;
         public static final int maindisplay_addcourse=0x7f090010;
         public static final int maindisplay_addcourselayout=0x7f090011;
         public static final int maindisplay_addcourselayout_checkboxerror=0x7f090017;
@@ -72,7 +78,7 @@ public final class R {
         public static final int usergradedisplay_cgpalayout=0x7f09001b;
         public static final int usergradesdisplay_cgpa=0x7f09001c;
         public static final int usergradesdisplay_coursemarks=0x7f09001f;
-        public static final int usergradesdisplay_coursemarkstitle=0x7f09001e;
+        public static final int usergradesdisplay_coursemarkslayout=0x7f09001e;
         public static final int usergradesdisplay_nomarks=0x7f09001d;
     }
     public static final class layout {
@@ -80,7 +86,8 @@ public final class R {
         public static final int activity_main_courses_display=0x7f030001;
         public static final int activity_user_grades_display=0x7f030002;
         public static final int listitem_assessment=0x7f030003;
-        public static final int listviewitem_course=0x7f030004;
+        public static final int listitem_courseandgrade=0x7f030004;
+        public static final int listviewitem_course=0x7f030005;
     }
     public static final class menu {
         public static final int indv_course_display=0x7f080000;
@@ -111,12 +118,13 @@ public final class R {
         public static final int marks=0x7f060014;
         public static final int name=0x7f060015;
         public static final int no_marks=0x7f060016;
-        public static final int save=0x7f060017;
-        public static final int title_activity_indv_course_display=0x7f060018;
-        public static final int title_activity_main_courses_display=0x7f060019;
-        public static final int title_activity_user_grades_display=0x7f06001c;
-        public static final int weight=0x7f06001a;
-        public static final int weight_percent=0x7f06001b;
+        public static final int none=0x7f060017;
+        public static final int save=0x7f060018;
+        public static final int title_activity_indv_course_display=0x7f060019;
+        public static final int title_activity_main_courses_display=0x7f06001a;
+        public static final int title_activity_user_grades_display=0x7f06001d;
+        public static final int weight=0x7f06001b;
+        public static final int weight_percent=0x7f06001c;
     }
     public static final class style {
         /** 
