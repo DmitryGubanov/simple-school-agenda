@@ -122,11 +122,15 @@ public class IndvCourseDisplay extends Activity {
 	private void setVisibilities(int vAddAssessment, int vAddAssessmentLayout,
 			int vFillFields) {
 		if (course.getMark() == 999) {
-			((LinearLayout) findViewById(R.id.indcoursedisplay_gradinginfolayout))
+			((LinearLayout) findViewById(R.id.indcoursedisplay_gradinginfo))
 					.setVisibility(View.GONE);
+			((LinearLayout) findViewById(R.id.indcoursedisplay_setmark))
+			.setVisibility(View.VISIBLE);
 		} else {
-			((LinearLayout) findViewById(R.id.indcoursedisplay_gradinginfolayout))
+			((LinearLayout) findViewById(R.id.indcoursedisplay_gradinginfo))
 					.setVisibility(View.VISIBLE);
+			((LinearLayout) findViewById(R.id.indcoursedisplay_setmark))
+			.setVisibility(View.GONE);
 		}
 		((TextView) findViewById(R.id.indcoursedisplay_addassessment))
 				.setVisibility(vAddAssessment);

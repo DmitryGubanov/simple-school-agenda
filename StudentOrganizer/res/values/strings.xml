@@ -11,6 +11,7 @@
     <string name="course_info">course information</string>
     <string name="course_marks">course marks</string>
     <string name="cumulative_gpa">Cumulative GPA</string>
+    <string name="edit">EDIT</string>
     <string name="error_pick_one">* Pick one course duration. </string>
     <string name="fill_fields"> * Fill in all the fields.</string>
     <string name="full_year">Full-year</string>
@@ -26,6 +27,7 @@
     <string name="no_marks">No marks for any courses</string>
     <string name="none">None</string>
     <string name="save">Save</string>
+    <string name="setmark">SET MARK</string>
     <string name="title_activity_indv_course_display">Course Page</string>
     <string name="title_activity_main_courses_display">Student Organizer</string>
     <string name="weight">Weight</string>

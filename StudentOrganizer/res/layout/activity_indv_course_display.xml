@@ -69,13 +69,29 @@
 	        android:orientation="vertical"
 	        >
 	        
-	        <TextView
+	        <LinearLayout
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            android:text="@string/grading_info"
-	            android:textStyle="bold"
-	            android:textAllCaps="true"
-	            />
+	            android:orientation="horizontal"
+	            >
+	        
+		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/grading_info"
+		            android:textStyle="bold"
+		            android:textAllCaps="true"
+		            />
+		        
+		        <TextView
+		            android:id="@+id/indcoursedisplay_editmark"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:gravity="right"
+		            android:hint="@string/edit"
+		            />
+	        
+	        </LinearLayout>
 	        
 	        <View
 	            android:layout_width="match_parent"
@@ -84,7 +100,16 @@
 	            android:paddingBottom="@dimen/under_title_spacing"
 	            />
 	        
+	        <TextView
+	            android:id="@+id/indcoursedisplay_setmark"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:hint="@string/setmark"
+	            android:paddingTop="@dimen/button_padding"
+	            />
+	        
 	        <LinearLayout
+	            android:id="@+id/indcoursedisplay_gradinginfo"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
 	            android:orientation="horizontal"

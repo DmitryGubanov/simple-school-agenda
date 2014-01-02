@@ -79,6 +79,12 @@ public class DatabaseManager<R extends Recordable> implements Serializable {
 		return courses;
 	}
 
+	/**
+	 * Adds an item to the database, i.e. its text file.
+	 * 
+	 * @param recordable
+	 *            The item to be added.
+	 */
 	public void addItem(R recordable) {
 		try {
 			fileManager.writeToFile(recordable);
@@ -90,6 +96,20 @@ public class DatabaseManager<R extends Recordable> implements Serializable {
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
+		}
+	}
+
+	/**
+	 * Deletes an item from the database, i.e. its text file.
+	 * 
+	 * @param recordable
+	 *            The item to be deleted.
+	 */
+	public void deleteItem(R recordable) {
+		try {
+			fileManager.deleteFromFile(recordable);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 

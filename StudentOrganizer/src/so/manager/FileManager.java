@@ -17,7 +17,7 @@ public class FileManager<R extends Recordable> implements Serializable {
 
 	/** This FileManager's UID. */
 	private static final long serialVersionUID = 6811424858481685790L;
-	
+
 	/** This FileManager's directory. */
 	private File directory;
 
@@ -30,9 +30,10 @@ public class FileManager<R extends Recordable> implements Serializable {
 	public FileManager(File directory) {
 		this.directory = directory;
 	}
-	
+
 	/**
 	 * Returns this FileManager's directory.
+	 * 
 	 * @return This FileManager's directory.
 	 */
 	public File getDir() {
@@ -92,9 +93,41 @@ public class FileManager<R extends Recordable> implements Serializable {
 	 * 
 	 * @param recordable
 	 *            The recordable object to be deleted.
+	 * @throws FileNotFoundException
 	 */
-	public void deleteFromFile(R recordable) {
-		// TODO: complete this method.
+	public void deleteFromFile(R recordable) throws FileNotFoundException {
+		File file = new File(directory, recordable.getFileName());
+		Scanner scanner = new Scanner(new FileInputStream(file.getPath()));
+		
+		List<String> newData = new ArrayList<String>();
+		while(scanner.hasNextLine()) {
+			if (!(scanner.nextLine().equals(recordable.getText()))) {
+				newData.add(scanner.nextLine());
+			}
+		}
+		
+		file.delete();
+		
+		try {
+			file.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		FileOutputStream outputStream = new FileOutputStream(file, true);
+		
+		for (String dataItem : newData) {
+			try {
+				outputStream.write(dataItem.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		try {
+			outputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-
 }
