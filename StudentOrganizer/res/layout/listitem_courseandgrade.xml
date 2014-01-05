@@ -8,7 +8,7 @@
         android:id="@+id/listitemcourseandgrade_course"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/small_text" />
+        android:textSize="@dimen/medium_text" />
 
     <LinearLayout
         android:baselineAligned="false"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/weight"
                 android:textAllCaps="true"
-                android:textColor="@color/dark_grey" />
+                android:textColor="@color/darkish_grey" />
 
             <TextView
                 android:id="@+id/listitemcourseandgrade_weight"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mark"
                 android:textAllCaps="true"
-                android:textColor="@color/dark_grey" />
+                android:textColor="@color/darkish_grey" />
 
             <TextView
                 android:id="@+id/listitemcourseandgrade_mark"
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gpv"
                 android:textAllCaps="true"
-                android:textColor="@color/dark_grey" />
+                android:textColor="@color/darkish_grey" />
 
             <TextView
                 android:id="@+id/listitemcourseandgrade_gpv"
@@ -80,10 +80,18 @@
         </LinearLayout>
         
     </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_padding" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey" />
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_padding" />
 
 </LinearLayout>

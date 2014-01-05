@@ -10,5 +10,6 @@
     <dimen name="small_text">15sp</dimen>
     <dimen name="text_indent">8dp</dimen>
     <dimen name="under_title_spacing">5dp</dimen>
+    <dimen name="item_padding">3dp</dimen>
 
 </resources>

@@ -7,7 +7,9 @@
     <string name="app_name">Student Organizer</string>
     <string name="assessments">assessments</string>
     <string name="cancel">Cancel</string>
+    <string name="cancelAllCaps">CANCEL</string>
     <string name="code">Code</string>
+    <string name="comma">,</string>
     <string name="course_info">course information</string>
     <string name="course_marks">course marks</string>
     <string name="cumulative_gpa">Cumulative GPA</string>
@@ -15,8 +17,9 @@
     <string name="error_pick_one">* Pick one course duration. </string>
     <string name="fill_fields"> * Fill in all the fields.</string>
     <string name="full_year">Full-year</string>
-    <string name="grading_info">grades</string>
+    <string name="got">Got</string>
     <string name="gpv">gpv</string>
+    <string name="grading_info">grades</string>
     <string name="half_year">Half-year</string>
     <string name="hello_world">Hello world!</string>
     <string name="indvcoursedisplay_title">Course Page</string>
@@ -26,12 +29,16 @@
     <string name="name">Name</string>
     <string name="no_marks">No marks for any courses</string>
     <string name="none">None</string>
+    <string name="percent">%</string>
+    <string name="period">.</string>
     <string name="save">Save</string>
+    <string name="saveAlLCaps">SAVE</string>
     <string name="setmark">SET MARK</string>
     <string name="title_activity_indv_course_display">Course Page</string>
     <string name="title_activity_main_courses_display">Student Organizer</string>
     <string name="weight">Weight</string>
     <string name="weight_percent">Weight (%)</string>
+    <string name="worth">Worth</string>
     <string name="title_activity_user_grades_display">Your Grades</string>
 
 </resources>
