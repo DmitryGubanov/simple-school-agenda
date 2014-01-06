@@ -34,6 +34,7 @@ public final class R {
         public static final int layout_padding=0x7f050004;
         public static final int medium_text=0x7f050005;
         public static final int small_text=0x7f050006;
+        public static final int space=0x7f05000a;
         public static final int text_indent=0x7f050007;
         public static final int under_title_spacing=0x7f050008;
     }
@@ -41,9 +42,9 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_viewmarks=0x7f09003a;
-        public static final int courselistviewitem_code=0x7f090039;
-        public static final int courselistviewitem_name=0x7f090038;
+        public static final int action_viewmarks=0x7f09003b;
+        public static final int courselistviewitem_code=0x7f09003a;
+        public static final int courselistviewitem_name=0x7f090039;
         public static final int indcoursedisplay_addassessment=0x7f09000f;
         public static final int indcoursedisplay_addassessment_cancel=0x7f090016;
         public static final int indcoursedisplay_addassessment_save=0x7f090015;
@@ -70,20 +71,21 @@ public final class R {
         public static final int indcoursedisplay_weight=0x7f090004;
         public static final int listitem_assessment=0x7f090028;
         public static final int listitem_assessment_assessmentlayout=0x7f090029;
-        public static final int listitem_assessment_canceleditassessment=0x7f090032;
-        public static final int listitem_assessment_editassessment=0x7f09002c;
-        public static final int listitem_assessment_editassessmentlayout=0x7f09002d;
-        public static final int listitem_assessment_editmark=0x7f090030;
-        public static final int listitem_assessment_editname=0x7f09002e;
-        public static final int listitem_assessment_editweight=0x7f09002f;
+        public static final int listitem_assessment_canceleditassessment=0x7f090033;
+        public static final int listitem_assessment_editassessment=0x7f09002d;
+        public static final int listitem_assessment_editassessmentlayout=0x7f09002e;
+        public static final int listitem_assessment_editmark=0x7f090031;
+        public static final int listitem_assessment_editname=0x7f09002f;
+        public static final int listitem_assessment_editweight=0x7f090030;
+        public static final int listitem_assessment_mark=0x7f09002c;
         public static final int listitem_assessment_name=0x7f09002a;
-        public static final int listitem_assessment_saveassessment=0x7f090031;
-        public static final int listitem_assessment_weightandgrade=0x7f09002b;
-        public static final int listitemcourseandgrade_course=0x7f090033;
-        public static final int listitemcourseandgrade_gpv=0x7f090036;
-        public static final int listitemcourseandgrade_mark=0x7f090035;
-        public static final int listitemcourseandgrade_weight=0x7f090034;
-        public static final int listviewitem_course=0x7f090037;
+        public static final int listitem_assessment_saveassessment=0x7f090032;
+        public static final int listitem_assessment_weight=0x7f09002b;
+        public static final int listitemcourseandgrade_course=0x7f090034;
+        public static final int listitemcourseandgrade_gpv=0x7f090037;
+        public static final int listitemcourseandgrade_mark=0x7f090036;
+        public static final int listitemcourseandgrade_weight=0x7f090035;
+        public static final int listviewitem_course=0x7f090038;
         public static final int maindisplay_addcourse=0x7f090018;
         public static final int maindisplay_addcourselayout=0x7f090019;
         public static final int maindisplay_addcourselayout_checkboxerror=0x7f09001f;

@@ -11,5 +11,6 @@
     <dimen name="text_indent">8dp</dimen>
     <dimen name="under_title_spacing">5dp</dimen>
     <dimen name="item_padding">3dp</dimen>
+    <dimen name="space">4dp</dimen>
 
 </resources>

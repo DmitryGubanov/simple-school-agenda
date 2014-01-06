@@ -14,6 +14,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -104,8 +105,10 @@ public class IndvCourseDisplay extends Activity {
 				// reference all the views in each item
 				TextView assessmentName = (TextView) view
 						.findViewById(R.id.listitem_assessment_name);
-				TextView assessmentWeightAndGrade = (TextView) view
-						.findViewById(R.id.listitem_assessment_weightandgrade);
+				TextView assessmentWeight = (TextView) view
+						.findViewById(R.id.listitem_assessment_weight);
+				TextView assessmentMark = (TextView) view
+						.findViewById(R.id.listitem_assessment_mark);
 				LinearLayout editAssessmentLayout = (LinearLayout) view
 						.findViewById(R.id.listitem_assessment_editassessmentlayout);
 				TextView editView = (TextView) view
@@ -113,12 +116,14 @@ public class IndvCourseDisplay extends Activity {
 
 				// set name, weight, and mark
 				assessmentName.setText(assessment.getName());
-				assessmentWeightAndGrade.setText("worth "
-						+ assessment.getWeight() + "%, got "
-						+ assessment.getMark() + "%.");
+				assessmentWeight
+						.setText(String.valueOf(assessment.getWeight()));
+				assessmentMark.setText(String.valueOf(assessment.getMark()));
 				// set visibility of edit button and edit layout to gone
 				editView.setVisibility(View.GONE);
 				editAssessmentLayout.setVisibility(View.GONE);
+
+				setupEditIndvAssessmentButton(editView);
 
 				assessmentList.addView(view);
 			}
@@ -290,67 +295,153 @@ public class IndvCourseDisplay extends Activity {
 	 * layouts.
 	 */
 	private void setupEditButtons() {
+		System.out.println("This should print.");
 		TextView editCourseInfo = (TextView) findViewById(R.id.indcoursedisplay_editcourse);
 		TextView editGrades = (TextView) findViewById(R.id.indcoursedisplay_editmark);
 		TextView editAssessments = (TextView) findViewById(R.id.indcoursedisplay_editassessments);
-		
+
 		editCourseInfo.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View editCourseInfo) {
 				// TODO: what to do when you click EDIT course info
+				setVisibilities(View.GONE, View.GONE, View.GONE, false, null,
+						null);
 			}
 		});
-		
+
 		editGrades.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View editGrades) {
 				// TODO: what to do when you click EDIT grades
+				setVisibilities(View.GONE, View.GONE, View.GONE, null, false,
+						null);
 			}
 		});
-		
+
 		editAssessments.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View editAssessments) {
 				// TODO: what to do when you click EDIT assessments
+				setVisibilities(View.GONE, View.GONE, View.GONE, null, null,
+						false);
+				setEditAssessmentVisibilities(View.VISIBLE);
 			}
 		});
 	}
-	
+
+	/**
+	 * Sets the visibility of the EDIT views beside each assessment.
+	 * 
+	 * @param vEditViews
+	 *            The desired visibility of every EDIT view.
+	 */
+	private void setEditAssessmentVisibilities(int vEditViews) {
+		LinearLayout assessmentList = (LinearLayout) findViewById(R.id.indcoursedisplay_assessmentlist);
+
+		for (int i = 0; i < assessmentList.getChildCount(); i++) {
+			assessmentList.getChildAt(i)
+					.findViewById(R.id.listitem_assessment_editassessment)
+					.setVisibility(vEditViews);
+		}
+	}
+
 	/**
 	 * Sets up the EDIT views for course info, grading info, and assessment
 	 * layouts.
 	 */
 	private void setupCancelButtons() {
-		TextView cancelEditCourseInfo = (TextView) findViewById(R.id.indcoursedisplay_editcourse);
-		TextView cancelEditGrades = (TextView) findViewById(R.id.indcoursedisplay_editmark);
-		TextView cancelEditAssessments = (TextView) findViewById(R.id.indcoursedisplay_editassessments);
-		
+		TextView cancelEditCourseInfo = (TextView) findViewById(R.id.indcoursedisplay_canceleditcourse);
+		TextView cancelEditGrades = (TextView) findViewById(R.id.indcoursedisplay_canceleditmark);
+		TextView cancelEditAssessments = (TextView) findViewById(R.id.indcoursedisplay_canceleditassessments);
+
 		cancelEditCourseInfo.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View cancelEditCourseInfo) {
 				// TODO: what to do when you click CANCEL edit course info
+				setVisibilities(View.VISIBLE, View.GONE, View.GONE, true, true,
+						true);
 			}
 		});
-		
+
 		cancelEditGrades.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View cancelEditGrades) {
 				// TODO: what to do when you click CANCEL edit grades
+				setVisibilities(View.VISIBLE, View.GONE, View.GONE, true, true,
+						true);
 			}
 		});
-		
+
 		cancelEditAssessments.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View cancelEditAssessments) {
 				// TODO: what to do when you click CANCEL edit assessments
+				setVisibilities(View.VISIBLE, View.GONE, View.GONE, true, true,
+						true);
+				setEditAssessmentVisibilities(View.GONE);
 			}
 		});
+	}
+
+	/**
+	 * Sets up the individual EDIT views beside each assessment to open the
+	 * respective edit assessment layout on click.
+	 * 
+	 * @param editView
+	 *            The individual EDIT view.
+	 */
+	private void setupEditIndvAssessmentButton(View editView) {
+		editView.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View editView) {
+				showEditAssessmentLayout((ViewGroup) editView.getParent()
+						.getParent());
+			}
+		});
+	}
+
+	/**
+	 * Replaces an individual assessment layout with the edit assessment layout
+	 * and fills the EditText views with the information of the respective
+	 * assessment.
+	 * 
+	 * @param AssessmentListItem
+	 *            The entire assessment list item, i.e. the parent of the
+	 *            assessment layout and the edit assessment layout.
+	 */
+	private void showEditAssessmentLayout(ViewGroup AssessmentListItem) {
+		AssessmentListItem.findViewById(
+				R.id.listitem_assessment_assessmentlayout).setVisibility(
+				View.GONE);
+		AssessmentListItem.findViewById(
+				R.id.listitem_assessment_editassessmentlayout).setVisibility(
+				View.VISIBLE);
+
+		String name = ((TextView) AssessmentListItem
+				.findViewById(R.id.listitem_assessment_name)).getText()
+				.toString();
+		String weight = ((TextView) AssessmentListItem
+				.findViewById(R.id.listitem_assessment_weight)).getText()
+				.toString();
+		String mark = ((TextView) AssessmentListItem
+				.findViewById(R.id.listitem_assessment_mark)).getText()
+				.toString();
+
+		((EditText) AssessmentListItem
+				.findViewById(R.id.listitem_assessment_editname))
+				.setText(name);
+		((EditText) AssessmentListItem
+				.findViewById(R.id.listitem_assessment_editweight))
+				.setText(weight);
+		((EditText) AssessmentListItem
+				.findViewById(R.id.listitem_assessment_editmark)).setText(mark);
 	}
 
 	/**

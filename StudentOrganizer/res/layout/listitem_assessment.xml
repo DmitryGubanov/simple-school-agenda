@@ -22,13 +22,80 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/large_text" />
-
-            <TextView
-                android:id="@+id/listitem_assessment_weightandgrade"
-                android:layout_width="match_parent"
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAllCaps="true"
-                android:textColor="@color/dark_grey" />
+                android:orientation="horizontal"
+                >
+
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/worth"
+	                android:textAllCaps="true"
+	                android:textColor="@color/dark_grey" />
+	            
+	            <View
+	                android:layout_width="@dimen/space"
+	                android:layout_height="match_parent" />
+	
+	            <TextView
+	                android:id="@+id/listitem_assessment_weight"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="@color/dark_grey" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/percent"
+	                android:textAllCaps="true"
+	                android:textColor="@color/dark_grey" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/comma"
+	                android:textAllCaps="true"
+	                android:textColor="@color/dark_grey" />
+	
+	            <View
+	                android:layout_width="@dimen/space"
+	                android:layout_height="match_parent" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/got"
+	                android:textAllCaps="true"
+	                android:textColor="@color/dark_grey" />
+	            
+	            <View
+	                android:layout_width="@dimen/space"
+	                android:layout_height="match_parent" />
+	
+	            <TextView
+	                android:id="@+id/listitem_assessment_mark"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="@color/dark_grey" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/percent"
+	                android:textAllCaps="true"
+	                android:textColor="@color/dark_grey" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="@string/period"
+	                android:textAllCaps="true"
+	                android:textColor="@color/dark_grey" />
+            
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
@@ -36,9 +103,9 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:gravity="center_vertical"
+            android:hint="@string/edit"
             android:paddingLeft="@dimen/button_padding"
-            android:paddingRight="@dimen/button_padding"
-            android:hint="@string/edit" />
+            android:paddingRight="@dimen/button_padding" />
     </LinearLayout>
 
     <LinearLayout
@@ -57,7 +124,8 @@
                 android:id="@+id/listitem_assessment_editname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/name"
+                android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:inputType="text"
                 android:textSize="@dimen/large_text" />
 
             <LinearLayout
@@ -132,35 +200,31 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
+            android:hint="@string/saveAlLCaps"
             android:paddingLeft="@dimen/button_padding"
-            android:paddingRight="@dimen/button_padding"
-            android:hint="@string/saveAlLCaps" />
-        
+            android:paddingRight="@dimen/button_padding" />
+
         <TextView
             android:id="@+id/listitem_assessment_canceleditassessment"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
+            android:hint="@string/cancelAllCaps"
             android:paddingLeft="@dimen/button_padding"
-            android:paddingRight="@dimen/button_padding"
-            android:hint="@string/cancelAllCaps" />
-        
+            android:paddingRight="@dimen/button_padding" />
     </LinearLayout>
-    
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_padding"
-        />
+        android:layout_height="@dimen/item_padding" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/lighter_grey"
-        />
-    
+        android:background="@color/lighter_grey" />
+
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_padding"
-        />
+        android:layout_height="@dimen/item_padding" />
 
 </LinearLayout>
