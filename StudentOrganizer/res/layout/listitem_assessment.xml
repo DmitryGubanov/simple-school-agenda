@@ -106,6 +106,16 @@
             android:hint="@string/edit"
             android:paddingLeft="@dimen/button_padding"
             android:paddingRight="@dimen/button_padding" />
+        
+        <TextView
+            android:id="@+id/listitem_assessment_deleteassessment"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:hint="@string/delete"
+            android:paddingLeft="@dimen/button_padding"
+            android:paddingRight="@dimen/button_padding"
+            />
     </LinearLayout>
 
     <LinearLayout

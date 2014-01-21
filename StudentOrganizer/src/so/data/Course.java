@@ -12,6 +12,9 @@ public class Course implements Gradable, Recordable, Serializable {
 	/** This Course's UID. */
 	private static final long serialVersionUID = 6528187084972101144L;
 
+	/** This Course's ID. */
+	private int id;
+
 	/** This Course's name */
 	private String name;
 
@@ -48,12 +51,49 @@ public class Course implements Gradable, Recordable, Serializable {
 	}
 
 	/**
+	 * Sets this Course's ID to the given ID.
+	 * 
+	 * @param id
+	 *            The given ID.
+	 */
+	public void setID(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * Returns this Course's ID.
+	 */
+	public int getID() {
+		return this.id;
+	}
+
+	/**
+	 * Sets this Course's name to a given name.
+	 * 
+	 * @param newName
+	 *            The given name.
+	 */
+	public void setName(String newName) {
+		this.name = newName;
+	}
+
+	/**
 	 * Returns this Course's name.
 	 * 
 	 * @return This Course's name.
 	 */
 	public String getName() {
 		return this.name;
+	}
+
+	/**
+	 * Sets this Course's course code to a given code.
+	 * 
+	 * @param newCode
+	 *            The given code.
+	 */
+	public void setCode(String newCode) {
+		this.code = newCode;
 	}
 
 	/**
@@ -75,13 +115,17 @@ public class Course implements Gradable, Recordable, Serializable {
 		this.mark = mark;
 	}
 
+	public double calculateMark() {
+		return calculator.calculateAvgGrade(assessments);
+	}
+
 	/**
 	 * Returns this Course's mark.
 	 * 
 	 * @return This Course's mark.
 	 */
-	public int getMark() {
-		return (int) Math.ceil(this.mark);
+	public double getMark() {
+		return this.mark;
 	}
 
 	/**
@@ -100,9 +144,9 @@ public class Course implements Gradable, Recordable, Serializable {
 	 *            The assessment to be added.
 	 */
 	public void addAssessment(Assessment assessment) {
-		assessment.setFileName(this.code + ".txt");
+		assessment.setFileName(this.id + ".txt");
+		assessment.setCourse(this);
 		assessments.add(assessment);
-		setMark(calculator.calculateAvgGrade(assessments));
 	}
 
 	/**
@@ -121,9 +165,9 @@ public class Course implements Gradable, Recordable, Serializable {
 	 *            The name.
 	 * @return The Assessment with the name.
 	 */
-	public Assessment getAssessment(String name) {
+	public Assessment getAssessment(int id) {
 		for (Assessment assessment : assessments) {
-			if (assessment.getName().equals(name)) {
+			if (assessment.getID() == id) {
 				return assessment;
 			}
 		}
@@ -140,6 +184,16 @@ public class Course implements Gradable, Recordable, Serializable {
 		return getGPV();
 	}
 
+	/**
+	 * Sets this Course's weight to the given weight.
+	 * 
+	 * @param newWeight
+	 *            The given weight.
+	 */
+	public void setWeight(double newWeight) {
+		this.weight = newWeight;
+	}
+
 	@Override
 	public double getWeight() {
 		return this.weight;
@@ -152,7 +206,8 @@ public class Course implements Gradable, Recordable, Serializable {
 
 	@Override
 	public String getText() {
-		return this.name + ";" + this.code + ";" + this.weight + "\n";
+		return this.id + ";" + this.name + ";" + this.code + ";" + this.weight
+				+ ";" + this.mark + "\n";
 	}
 
 }

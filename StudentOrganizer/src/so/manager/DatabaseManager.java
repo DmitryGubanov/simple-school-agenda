@@ -53,13 +53,16 @@ public class DatabaseManager<R extends Recordable> implements Serializable {
 		if (dataFromFile.size() > 0) {
 			for (String courseString : dataFromFile) {
 				String[] courseData = courseString.split(";");
-				courses.add(new Course(courseData[0], courseData[1], Double
-						.parseDouble(courseData[2])));
+				Course course = new Course(courseData[1], courseData[2],
+						Double.parseDouble(courseData[3]));
+				course.setID(Integer.parseInt(courseData[0]));
+				course.setMark(Double.parseDouble(courseData[4]));
+				courses.add(course);
 			}
 
 			for (Course course : courses) {
 				try {
-					dataFromFile = fileManager.readFromFile(course.getCode()
+					dataFromFile = fileManager.readFromFile(course.getID()
 							+ ".txt");
 				} catch (FileNotFoundException e) {
 					dataFromFile = null;
@@ -68,9 +71,12 @@ public class DatabaseManager<R extends Recordable> implements Serializable {
 				if (dataFromFile != null) {
 					for (String assessmentString : dataFromFile) {
 						String[] assessmentData = assessmentString.split(";");
-						course.addAssessment(new Assessment(assessmentData[0],
-								Double.parseDouble(assessmentData[1]), Double
-										.parseDouble(assessmentData[2])));
+						Assessment assessment = new Assessment(
+								assessmentData[1],
+								Double.parseDouble(assessmentData[2]),
+								Double.parseDouble(assessmentData[3]));
+						assessment.setID(Integer.parseInt(assessmentData[0]));
+						course.addAssessment(assessment);
 					}
 				}
 			}
@@ -100,7 +106,7 @@ public class DatabaseManager<R extends Recordable> implements Serializable {
 	}
 
 	/**
-	 * Deletes an item from the database, i.e. its text file.
+	 * Deletes an item from the database, i.e. from its text file.
 	 * 
 	 * @param recordable
 	 *            The item to be deleted.
@@ -111,6 +117,74 @@ public class DatabaseManager<R extends Recordable> implements Serializable {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * Edits a given assessment to have the given name, weight, and mark.
+	 * 
+	 * @param theAssessment
+	 *            The Assessment.
+	 * @param newName
+	 *            The desired name.
+	 * @param newWeight
+	 *            The desired weight.
+	 * @param newMark
+	 *            The desired mark.
+	 */
+	@SuppressWarnings("unchecked")
+	public void editAssessment(Assessment theAssessment, String newName,
+			String newWeight, String newMark) {
+		theAssessment.setName(newName);
+		theAssessment.setWeight(Double.parseDouble(newWeight));
+		theAssessment.setMark(Double.parseDouble(newMark));
+
+		fileManager.deleteFileFor((R) theAssessment);
+
+		for (Assessment assessment : theAssessment.belongsTo().getAssessments()) {
+			addItem((R) assessment);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public void editCourseMark(Course theCourse, String newMark) {
+		theCourse.setMark(Double.parseDouble(newMark));
+
+		fileManager.deleteFileFor((R) theCourse);
+
+		for (Course course : courses) {
+			if (course.getCode().equals(theCourse.getCode())) {
+				course.setMark(Double.parseDouble(newMark));
+			}
+			addItem((R) course);
+		}
+	}
+
+	/**
+	 * Edits the given course to have the given information.
+	 * 
+	 * @param theCourse
+	 *            The given Course.
+	 * @param newName
+	 *            The desired name for the Course.
+	 * @param newCode
+	 *            The desired code for the Course.
+	 * @param newWeight
+	 *            The desired weight for the Course.
+	 */
+	@SuppressWarnings("unchecked")
+	public void editCourseInfo(Course theCourse, String newName,
+			String newCode, double newWeight) {
+		theCourse.setName(newName);
+		theCourse.setCode(newCode);
+		theCourse.setWeight(newWeight);
+		
+		fileManager.deleteFileFor((R) theCourse);
+
+		for (Course course : courses) {
+			if (course.getID() == theCourse.getID()) addItem((R) theCourse);
+			else addItem((R) course);
+		}
+		
 	}
 
 }

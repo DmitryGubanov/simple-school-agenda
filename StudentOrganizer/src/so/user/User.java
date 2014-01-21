@@ -52,13 +52,13 @@ public class User implements Serializable {
 	/**
 	 * Get a course from this User's courses with the given code.
 	 * 
-	 * @param code
-	 *            The given code.
+	 * @param id
+	 *            The given ID.
 	 * @return A Course
 	 */
-	public Course getCourse(String code) {
+	public Course getCourse(int id) {
 		for (Course course : this.courses) {
-			if (course.getCode().equals(code))
+			if (course.getID() == id)
 				return course;
 		}
 

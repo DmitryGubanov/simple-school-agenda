@@ -51,6 +51,12 @@ public class MainCoursesDisplay extends Activity implements OnItemClickListener 
 
 		loadCourseList(user.getCourses());
 	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		loadCourseList(user.getCourses());
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -193,6 +199,7 @@ public class MainCoursesDisplay extends Activity implements OnItemClickListener 
 				weight = 1.0;
 			}
 			Course course = new Course(name, code, weight);
+			course.setID(user.getCourses().size() + 1);
 			user.addCourse(course);
 			manager.addItem(course);
 		}
@@ -216,7 +223,7 @@ public class MainCoursesDisplay extends Activity implements OnItemClickListener 
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		Intent intent = new Intent(this, IndvCourseDisplay.class);
-		intent.putExtra("course", user.getCourses().get(position).getCode());
+		intent.putExtra("courseid", user.getCourses().get(position).getID());
 		intent.putExtra("manager", manager);
 		startActivity(intent);
 	}

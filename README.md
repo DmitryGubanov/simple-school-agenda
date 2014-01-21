@@ -3,7 +3,7 @@ simple-school-agenda
 
 an app which will keep track of classes, assignments, and marks
 
-Current Version: 0.50
+Current Version: 0.70
 
 Changelog:
 
@@ -41,3 +41,7 @@ TODO: make the back-end work.
 v0.60:
 Modifying assessments now works properly.
 TODO: do the same for modifying marks and course info
+
+v0.70:
+Courses and Assessments now use IDs to identify themselves instead of their names. Allows for duplicate names. Modifying assessment info, course info, and course mark now works. Fixed all bugs I found with the interface. Added option to calculate mark based on assessments or to set mark as anything the user wants.
+TODO: decide what feature to implement next, since the editing milestone is done. Possibly improve UI a bit and make code better (activities have some things that could be handled by back end).

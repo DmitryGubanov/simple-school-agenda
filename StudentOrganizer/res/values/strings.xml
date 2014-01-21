@@ -6,6 +6,8 @@
     <string name="add_course">+ Add New Course</string>
     <string name="app_name">Student Organizer</string>
     <string name="assessments">assessments</string>
+    <string name="calculate">CALCULATE</string>
+    <string name="calculatemark">CALCULATE MARK</string>
     <string name="cancel">Cancel</string>
     <string name="cancelAllCaps">CANCEL</string>
     <string name="code">Code</string>
@@ -13,6 +15,7 @@
     <string name="course_info">course information</string>
     <string name="course_marks">course marks</string>
     <string name="cumulative_gpa">Cumulative GPA</string>
+    <string name="delete">DELETE</string>
     <string name="edit">EDIT</string>
     <string name="error_pick_one">* Pick one course duration. </string>
     <string name="fill_fields"> * Fill in all the fields.</string>

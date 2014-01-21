@@ -65,26 +65,121 @@
 	            android:paddingBottom="@dimen/under_title_spacing"
 	            />
 	        
-	        <TextView
-	            android:id="@+id/indcoursedisplay_name"
+	        <LinearLayout 
+	            android:id="@+id/indcoursedisplay_courseinfolayout"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/large_text"
-	            />
+	            android:orientation="vertical"
+	            >
 	        
-	        <TextView
-	            android:id="@+id/indcoursedisplay_code"
+		        <TextView
+		            android:id="@+id/indcoursedisplay_name"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:textSize="@dimen/large_text"
+		            />
+		        
+		        <TextView
+		            android:id="@+id/indcoursedisplay_code"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:textSize="@dimen/medium_text"
+		            />
+		        
+		        <TextView
+			        android:id="@+id/indcoursedisplay_weight"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="@dimen/medium_text"
+			        />
+	        
+	        </LinearLayout>
+	        
+	        <LinearLayout
+	            android:id="@+id/indcoursedisplay_editcourseinfolayout"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/medium_text"
-	            />
-	        
-	        <TextView
-		        android:id="@+id/indcoursedisplay_weight"
-		        android:layout_width="match_parent"
-		        android:layout_height="wrap_content"
-		        android:textSize="@dimen/medium_text"
-		        />
+	            android:orientation="horizontal"
+	            >
+	            
+	            <LinearLayout
+	                android:layout_width="0dp"
+	                android:layout_weight="1"
+	                android:layout_height="wrap_content"
+	                android:orientation="vertical"
+	                >
+	                
+	                <EditText
+	                    android:id="@+id/indcoursedisplay_editcourseinfolayout_name"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:inputType="text"
+	                    android:hint="@string/name"
+	                    android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	                    />
+	                
+	                <EditText
+	                    android:id="@+id/indcoursedisplay_editcourseinfolayout_code"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:inputType="text"
+	                    android:hint="@string/code"
+	                    android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	                    />
+	                
+	                <TextView
+	                    android:id="@+id/indcoursedisplay_editcourseinfolayout_errorempty"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/fill_fields"
+	                    android:textColor="@color/red"
+	                    android:visibility="gone"
+	                    />
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:orientation="horizontal"
+	                    >
+	                
+		                <CheckBox
+		                    android:id="@+id/indcoursedisplay_editcourseinfolayout_halfyearbox"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/half_year"
+		                    />
+		                
+		                <CheckBox
+		                    android:id="@+id/indcoursedisplay_editcourseinfolayout_fullyearbox"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/full_year"
+		                    />
+	                
+	                </LinearLayout>
+	                
+	                <TextView
+	                    android:id="@+id/indcoursedisplay_editcourseinfolayout_errorpickone"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/error_pick_one"
+	                    android:textColor="@color/red"
+	                    android:visibility="gone"
+	                    />
+	                
+	            </LinearLayout>
+	            
+	            <TextView
+	                android:id="@+id/indcoursedisplay_editcourseinfolayout_save"
+	                android:layout_width="wrap_content"
+	                android:layout_height="match_parent"
+	                android:gravity="center_vertical"
+	                android:paddingLeft="@dimen/button_padding"
+	                android:paddingRight="@dimen/button_padding"
+	                android:hint="@string/saveAlLCaps"
+	                />
+	            
+	        </LinearLayout>
 	        
 	    </LinearLayout>
 	    
@@ -138,13 +233,106 @@
 	            android:paddingBottom="@dimen/under_title_spacing"
 	            />
 	        
-	        <TextView
-	            android:id="@+id/indcoursedisplay_setmark"
-	            android:layout_width="wrap_content"
+	        <LinearLayout
+	            android:id="@+id/indcoursedisplay_setandcalcmarklayout"
+	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            android:hint="@string/setmark"
-	            android:paddingTop="@dimen/button_padding"
-	            />
+	            android:orientation="horizontal"
+	            >
+	        
+		        <TextView
+		            android:id="@+id/indcoursedisplay_setmark"
+		            android:gravity="center"
+		            android:layout_weight="1"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:hint="@string/setmark"
+		            android:paddingTop="@dimen/button_padding"
+		            android:paddingBottom="@dimen/button_padding"
+		            android:paddingLeft="@dimen/button_padding"
+		            android:paddingRight="@dimen/button_padding"
+		            />
+		        
+		        <TextView
+		            android:id="@+id/indcoursedisplay_calculatemark"
+		            android:gravity="center"
+		            android:layout_weight="1"
+		            android:layout_width="0dp"
+		            android:layout_height="wrap_content"
+		            android:hint="@string/calculatemark"
+		            android:paddingTop="@dimen/button_padding"
+		            android:paddingBottom="@dimen/button_padding"
+		            android:paddingLeft="@dimen/button_padding"
+		            android:paddingRight="@dimen/button_padding"
+		            />
+	        
+	        </LinearLayout>
+	        
+	        <LinearLayout
+	            android:id="@+id/indcoursedisplay_setmarklayout"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal"
+	            >
+		        
+	            <LinearLayout
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:orientation="horizontal"
+	                >
+	            
+		            <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/mark"
+		                android:textAllCaps="true"
+		                android:textColor="@color/dark_grey"
+		                />
+		            
+		            <View
+		                android:layout_width="@dimen/space"
+		                android:layout_height="wrap_content"
+		                />
+		            
+		            <EditText
+		                android:id="@+id/indcoursedisplay_setmarklayout_markfield"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:inputType="number"
+		                android:textSize="@dimen/large_text"
+		                />
+		            
+		            <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/percent"
+		                android:textColor="@color/dark_grey"
+		                />
+	            
+	            </LinearLayout>
+	            
+	            <TextView
+	                android:id="@+id/indcoursedisplay_setmarklayout_savemark"
+	                android:layout_width="wrap_content"
+	                android:layout_height="fill_parent"
+	                android:hint="@string/saveAlLCaps"
+	                android:gravity="bottom"
+	                android:paddingLeft="@dimen/button_padding"
+	                android:paddingRight="@dimen/button_padding"
+	                />
+	            
+	            <TextView
+		            android:id="@+id/indcoursedisplay_setmarklayout_calculatemark"
+		            android:layout_width="wrap_content"
+		            android:layout_height="fill_parent"
+		            android:hint="@string/calculate"
+		            android:gravity="bottom"
+		            android:paddingLeft="@dimen/button_padding"
+		            android:paddingRight="@dimen/button_padding"
+		            />
+	            
+	        </LinearLayout>
 	        
 	        <LinearLayout
 	            android:id="@+id/indcoursedisplay_gradinginfo"
@@ -173,9 +361,21 @@
 	                    android:id="@+id/indcoursedisplay_mark"
 	                    android:layout_width="wrap_content"
 	                    android:layout_height="wrap_content"
-	                    android:paddingLeft="@dimen/text_indent"
+	                    android:paddingLeft="@dimen/space"
 	                    android:textSize="@dimen/large_text"
 	                    />
+	                
+	                <View
+		                android:layout_width="@dimen/space"
+		                android:layout_height="wrap_content"
+		                />
+	                
+	                <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/percent"
+		                android:textColor="@color/dark_grey"
+		                />
 	                
 	            </LinearLayout>
 	            
@@ -279,6 +479,7 @@
 	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
 	                android:inputType="text"
+	                android:singleLine="true"
 	                android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	                android:hint="@string/name"
 	                />

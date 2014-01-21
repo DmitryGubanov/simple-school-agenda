@@ -98,36 +98,48 @@ public class FileManager<R extends Recordable> implements Serializable {
 	public void deleteFromFile(R recordable) throws FileNotFoundException {
 		File file = new File(directory, recordable.getFileName());
 		Scanner scanner = new Scanner(new FileInputStream(file.getPath()));
-		
+
 		List<String> newData = new ArrayList<String>();
-		while(scanner.hasNextLine()) {
-			if (!(scanner.nextLine().equals(recordable.getText()))) {
-				newData.add(scanner.nextLine());
+		while (scanner.hasNextLine()) {
+			String assessmentData = scanner.nextLine();
+			if (!((assessmentData + "\n").equals(recordable.getText()))) {
+				newData.add(assessmentData);
 			}
 		}
 		
 		file.delete();
-		
+
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		FileOutputStream outputStream = new FileOutputStream(file, true);
-		
+
 		for (String dataItem : newData) {
 			try {
-				outputStream.write(dataItem.getBytes());
+				outputStream.write((dataItem + "\n").getBytes());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		try {
 			outputStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * Deletes the file for a given Recordable object.
+	 * 
+	 * @param Recordable
+	 *            The given Recordable object.
+	 */
+	public void deleteFileFor(R Recordable) {
+		File file = new File(directory, Recordable.getFileName());
+		file.delete();
 	}
 }

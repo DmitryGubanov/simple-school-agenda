@@ -30,6 +30,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:inputType="text"
+		    android:singleLine="true"
 		    android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		    android:hint="@string/name"
 		    />
@@ -39,6 +40,8 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:inputType="text"
+		    android:singleLine="true"
+		    android:imeOptions="actionDone"
 		    android:digits="0,1,2,3,4,5,6,7,8,9, ,-,.,$,#,@,!,(,),+,=,\,,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		    android:hint="@string/code"
 		    />
