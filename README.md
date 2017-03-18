@@ -1,9 +1,9 @@
 simple-school-agenda
 ====================
 
-An app I made for myself while taking a Java course in 2nd year of Computer Science. I got bored of using an Excel spreadsheet for keeping track of my marks, so on my bus rides home I applied the things I learned in class that day to this app until it did what I wanted it to. V1.0 was intended to have more features and a fancier interface, but I was satisfied with using v0.7 so I stopped there.
+An app I made for myself during the winter break after taking a Java course in 2nd year of Computer Science. I got bored of using an Excel spreadsheet for keeping track of my marks, so on my bus rides home I applied the things I learned in that class to this app until it did what I wanted it to. V1.0 was intended to have more features and a fancier interface, but I was satisfied with using v0.7 so I stopped there.
 
-Current Version: 0.70 (ABANDONED)
+Current Version: 0.70
 
 Changelog:
 
