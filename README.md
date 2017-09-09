@@ -1,11 +1,10 @@
-simple-school-agenda
-====================
+# simple-school-agenda
 
 An app I made for myself during the winter break after taking a Java course in 2nd year of Computer Science. I got bored of using an Excel spreadsheet for keeping track of my marks, so on my bus rides home I applied the things I learned in that class to this app until it did what I wanted it to. V1.0 was intended to have more features and a fancier interface, but I was satisfied with using v0.7 so I stopped there.
 
-Current Version: 0.70
+# Changelog:
 
-Changelog:
+Current Version: 0.70
 
 v0.00:
 there's nothing yet... just started the repo
@@ -45,3 +44,27 @@ TODO: do the same for modifying marks and course info
 v0.70:
 Courses and Assessments now use IDs to identify themselves instead of their names. Allows for duplicate names. Modifying assessment info, course info, and course mark now works. Fixed all bugs I found with the interface. Added option to calculate mark based on assessments or to set mark as anything the user wants.
 TODO: decide what feature to implement next, since the editing milestone is done. Possibly improve UI a bit and make code better (activities have some things that could be handled by back end).
+
+# Screenshot dump
+
+It's unlikely I'll ever return to this specific app, so these screenshots are just for memory/reference purposes
+
+Empty screens:
+
+<img src="http://i.imgur.com/TlDIPdg.png" alt="Drawing" width="300"/> <img src="http://i.imgur.com/qrVYqXL.png" alt="Drawing" width="300"/>
+
+Added courses and adding a new one:
+
+<img src="http://i.imgur.com/OULL8cR.png" alt="Drawing" width="300"/> <img src="http://i.imgur.com/ShEHm9a.png" alt="Drawing" width="300"/>
+
+Empty course page, then populated:
+
+<img src="http://i.imgur.com/ywcPwoW.png" alt="Drawing" width="300"/> <img src="http://i.imgur.com/ZdXSAKq.png" alt="Drawing" width="300"/>
+
+All add/edit options for individual courses:
+
+<img src="http://i.imgur.com/MNM2zT9.png" alt="Drawing" width="300"/> <img src="http://i.imgur.com/h1p4L5v.png" alt="Drawing" width="300"/> <img src="http://i.imgur.com/Vxi9vtn.png" alt="Drawing" width="300"/> <img src="http://i.imgur.com/NmdrAyy.png" alt="Drawing" width="300"/>
+
+Marks page:
+
+<img src="http://i.imgur.com/MKV2jlr.png" alt="Drawing" width="300"/>
